@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F03D354527155CA700681286 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D354427155CA700681286 /* AppDelegate.swift */; };
+		F03D354727155CA700681286 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D354627155CA700681286 /* SceneDelegate.swift */; };
+		F03D354927155CA700681286 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D354827155CA700681286 /* ViewController.swift */; };
+		F03D354C27155CA700681286 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F03D354A27155CA700681286 /* Main.storyboard */; };
+		F03D354E27155CB200681286 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F03D354D27155CB200681286 /* Assets.xcassets */; };
+		F03D355127155CB200681286 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F03D354F27155CB200681286 /* LaunchScreen.storyboard */; };
+		F03D355C27155CB200681286 /* RappiPlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D355B27155CB200681286 /* RappiPlayTests.swift */; };
+		F03D356727155CB200681286 /* RappiPlayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D356627155CB200681286 /* RappiPlayUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F03D355827155CB200681286 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F03D353927155CA700681286 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F03D354027155CA700681286;
+			remoteInfo = RappiPlay;
+		};
+		F03D356327155CB200681286 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F03D353927155CA700681286 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F03D354027155CA700681286;
+			remoteInfo = RappiPlay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F03D354127155CA700681286 /* RappiPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F03D354427155CA700681286 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F03D354627155CA700681286 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F03D354827155CA700681286 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F03D354B27155CA700681286 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F03D354D27155CB200681286 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F03D355027155CB200681286 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F03D355227155CB200681286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F03D355727155CB200681286 /* RappiPlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RappiPlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F03D355B27155CB200681286 /* RappiPlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappiPlayTests.swift; sourceTree = "<group>"; };
+		F03D355D27155CB200681286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F03D356227155CB200681286 /* RappiPlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RappiPlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F03D356627155CB200681286 /* RappiPlayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappiPlayUITests.swift; sourceTree = "<group>"; };
+		F03D356827155CB200681286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F03D353E27155CA700681286 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F03D355427155CB200681286 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F03D355F27155CB200681286 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F03D353827155CA700681286 = {
+			isa = PBXGroup;
+			children = (
+				F03D354327155CA700681286 /* RappiPlay */,
+				F03D355A27155CB200681286 /* RappiPlayTests */,
+				F03D356527155CB200681286 /* RappiPlayUITests */,
+				F03D354227155CA700681286 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F03D354227155CA700681286 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F03D354127155CA700681286 /* RappiPlay.app */,
+				F03D355727155CB200681286 /* RappiPlayTests.xctest */,
+				F03D356227155CB200681286 /* RappiPlayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F03D354327155CA700681286 /* RappiPlay */ = {
+			isa = PBXGroup;
+			children = (
+				F03D354427155CA700681286 /* AppDelegate.swift */,
+				F03D354627155CA700681286 /* SceneDelegate.swift */,
+				F03D354827155CA700681286 /* ViewController.swift */,
+				F03D354A27155CA700681286 /* Main.storyboard */,
+				F03D354D27155CB200681286 /* Assets.xcassets */,
+				F03D354F27155CB200681286 /* LaunchScreen.storyboard */,
+				F03D355227155CB200681286 /* Info.plist */,
+			);
+			path = RappiPlay;
+			sourceTree = "<group>";
+		};
+		F03D355A27155CB200681286 /* RappiPlayTests */ = {
+			isa = PBXGroup;
+			children = (
+				F03D355B27155CB200681286 /* RappiPlayTests.swift */,
+				F03D355D27155CB200681286 /* Info.plist */,
+			);
+			path = RappiPlayTests;
+			sourceTree = "<group>";
+		};
+		F03D356527155CB200681286 /* RappiPlayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F03D356627155CB200681286 /* RappiPlayUITests.swift */,
+				F03D356827155CB200681286 /* Info.plist */,
+			);
+			path = RappiPlayUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F03D354027155CA700681286 /* RappiPlay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F03D356B27155CB200681286 /* Build configuration list for PBXNativeTarget "RappiPlay" */;
+			buildPhases = (
+				F03D353D27155CA700681286 /* Sources */,
+				F03D353E27155CA700681286 /* Frameworks */,
+				F03D353F27155CA700681286 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RappiPlay;
+			productName = RappiPlay;
+			productReference = F03D354127155CA700681286 /* RappiPlay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F03D355627155CB200681286 /* RappiPlayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F03D356E27155CB200681286 /* Build configuration list for PBXNativeTarget "RappiPlayTests" */;
+			buildPhases = (
+				F03D355327155CB200681286 /* Sources */,
+				F03D355427155CB200681286 /* Frameworks */,
+				F03D355527155CB200681286 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F03D355927155CB200681286 /* PBXTargetDependency */,
+			);
+			name = RappiPlayTests;
+			productName = RappiPlayTests;
+			productReference = F03D355727155CB200681286 /* RappiPlayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F03D356127155CB200681286 /* RappiPlayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F03D357127155CB200681286 /* Build configuration list for PBXNativeTarget "RappiPlayUITests" */;
+			buildPhases = (
+				F03D355E27155CB200681286 /* Sources */,
+				F03D355F27155CB200681286 /* Frameworks */,
+				F03D356027155CB200681286 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F03D356427155CB200681286 /* PBXTargetDependency */,
+			);
+			name = RappiPlayUITests;
+			productName = RappiPlayUITests;
+			productReference = F03D356227155CB200681286 /* RappiPlayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F03D353927155CA700681286 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					F03D354027155CA700681286 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					F03D355627155CB200681286 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = F03D354027155CA700681286;
+					};
+					F03D356127155CB200681286 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = F03D354027155CA700681286;
+					};
+				};
+			};
+			buildConfigurationList = F03D353C27155CA700681286 /* Build configuration list for PBXProject "RappiPlay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F03D353827155CA700681286;
+			productRefGroup = F03D354227155CA700681286 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F03D354027155CA700681286 /* RappiPlay */,
+				F03D355627155CB200681286 /* RappiPlayTests */,
+				F03D356127155CB200681286 /* RappiPlayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F03D353F27155CA700681286 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F03D355127155CB200681286 /* LaunchScreen.storyboard in Resources */,
+				F03D354E27155CB200681286 /* Assets.xcassets in Resources */,
+				F03D354C27155CA700681286 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F03D355527155CB200681286 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F03D356027155CB200681286 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F03D353D27155CA700681286 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F03D354927155CA700681286 /* ViewController.swift in Sources */,
+				F03D354527155CA700681286 /* AppDelegate.swift in Sources */,
+				F03D354727155CA700681286 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F03D355327155CB200681286 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F03D355C27155CB200681286 /* RappiPlayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F03D355E27155CB200681286 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F03D356727155CB200681286 /* RappiPlayUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F03D355927155CB200681286 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F03D354027155CA700681286 /* RappiPlay */;
+			targetProxy = F03D355827155CB200681286 /* PBXContainerItemProxy */;
+		};
+		F03D356427155CB200681286 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F03D354027155CA700681286 /* RappiPlay */;
+			targetProxy = F03D356327155CB200681286 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F03D354A27155CA700681286 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F03D354B27155CA700681286 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F03D354F27155CB200681286 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F03D355027155CB200681286 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F03D356927155CB200681286 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F03D356A27155CB200681286 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F03D356C27155CB200681286 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38F2GJD5G9;
+				INFOPLIST_FILE = RappiPlay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jmiranda.RappiPlay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F03D356D27155CB200681286 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38F2GJD5G9;
+				INFOPLIST_FILE = RappiPlay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jmiranda.RappiPlay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F03D356F27155CB200681286 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38F2GJD5G9;
+				INFOPLIST_FILE = RappiPlayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jmiranda.RappiPlayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RappiPlay.app/RappiPlay";
+			};
+			name = Debug;
+		};
+		F03D357027155CB200681286 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38F2GJD5G9;
+				INFOPLIST_FILE = RappiPlayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jmiranda.RappiPlayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RappiPlay.app/RappiPlay";
+			};
+			name = Release;
+		};
+		F03D357227155CB200681286 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38F2GJD5G9;
+				INFOPLIST_FILE = RappiPlayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jmiranda.RappiPlayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RappiPlay;
+			};
+			name = Debug;
+		};
+		F03D357327155CB200681286 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38F2GJD5G9;
+				INFOPLIST_FILE = RappiPlayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jmiranda.RappiPlayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RappiPlay;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F03D353C27155CA700681286 /* Build configuration list for PBXProject "RappiPlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F03D356927155CB200681286 /* Debug */,
+				F03D356A27155CB200681286 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F03D356B27155CB200681286 /* Build configuration list for PBXNativeTarget "RappiPlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F03D356C27155CB200681286 /* Debug */,
+				F03D356D27155CB200681286 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F03D356E27155CB200681286 /* Build configuration list for PBXNativeTarget "RappiPlayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F03D356F27155CB200681286 /* Debug */,
+				F03D357027155CB200681286 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F03D357127155CB200681286 /* Build configuration list for PBXNativeTarget "RappiPlayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F03D357227155CB200681286 /* Debug */,
+				F03D357327155CB200681286 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F03D353927155CA700681286 /* Project object */;
+}
