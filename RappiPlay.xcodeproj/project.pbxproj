@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		F03D355127155CB200681286 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F03D354F27155CB200681286 /* LaunchScreen.storyboard */; };
 		F03D355C27155CB200681286 /* RappiPlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D355B27155CB200681286 /* RappiPlayTests.swift */; };
 		F03D356727155CB200681286 /* RappiPlayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D356627155CB200681286 /* RappiPlayUITests.swift */; };
+		F03D35AB2715652E00681286 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35AA2715652E00681286 /* MovieService.swift */; };
+		F03D35AC2715652E00681286 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35AA2715652E00681286 /* MovieService.swift */; };
 		FC9313E795A72BDCA9DC9733 /* Pods_RappiPlayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFAF7C01AB3605E0BEFF5D8 /* Pods_RappiPlayTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,7 @@
 		F03D356227155CB200681286 /* RappiPlayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RappiPlayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F03D356627155CB200681286 /* RappiPlayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappiPlayUITests.swift; sourceTree = "<group>"; };
 		F03D356827155CB200681286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F03D35AA2715652E00681286 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +114,6 @@
 				5631E1A9E603AFDE71AA7B73 /* Pods-RappiPlayTests.debug.xcconfig */,
 				2B087D2A593A1664EF33D5A5 /* Pods-RappiPlayTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,6 +142,7 @@
 		F03D354327155CA700681286 /* RappiPlay */ = {
 			isa = PBXGroup;
 			children = (
+				F03D35A3271564BE00681286 /* Services */,
 				F03D354427155CA700681286 /* AppDelegate.swift */,
 				F03D354627155CA700681286 /* SceneDelegate.swift */,
 				F03D354827155CA700681286 /* ViewController.swift */,
@@ -167,6 +170,14 @@
 				F03D356827155CB200681286 /* Info.plist */,
 			);
 			path = RappiPlayUITests;
+			sourceTree = "<group>";
+		};
+		F03D35A3271564BE00681286 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F03D35AA2715652E00681286 /* MovieService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +420,7 @@
 			files = (
 				F03D354927155CA700681286 /* ViewController.swift in Sources */,
 				F03D354527155CA700681286 /* AppDelegate.swift in Sources */,
+				F03D35AB2715652E00681286 /* MovieService.swift in Sources */,
 				F03D354727155CA700681286 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F03D35AC2715652E00681286 /* MovieService.swift in Sources */,
 				F03D355C27155CB200681286 /* RappiPlayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
