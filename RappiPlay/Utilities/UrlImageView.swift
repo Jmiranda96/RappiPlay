@@ -14,6 +14,7 @@ class UrlImageView: UIImageView {
 
     let imageCache = NSCache<NSString, UIImage>()
     var imageUrlString = String()
+    var usingPlaceholder = false
     
     /// load images from url and save in temporal cache to show in reusable views
     func loadImageFromUrl(_ urlString: String){
@@ -31,6 +32,8 @@ class UrlImageView: UIImageView {
         AF.download(urlString).responseData { response in
             
             guard response.error == nil else {
+                self.usingPlaceholder = true
+                self.image = UIImage(named: "Image-Not-Available")
                 return
             }
             
@@ -42,9 +45,11 @@ class UrlImageView: UIImageView {
                 
                 guard imageToCache != nil else {
                     // if image not found, placeholder placed
-                    self.image = UIImage(named: "MMLogo")
+                    self.usingPlaceholder = true
+                    self.image = UIImage(named: "Image-Not-Available")
                     return
                 }
+                self.usingPlaceholder = false
                 DispatchQueue.main.async {
                     //checking of right image and display
                     if self.imageUrlString == urlString {

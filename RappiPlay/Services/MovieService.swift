@@ -64,7 +64,7 @@ class MovieService {
         }
     }
     
-    init(session: Session? = Session(), testing: Bool = false) {
+    init(testing: Bool = false) {
         // get url direction from info.plist
         guard let serverUrl = Bundle.main.infoDictionary?["api-url"] as? String  else {
             fatalError("api direction not found")
@@ -80,15 +80,27 @@ class MovieService {
         // Init of session manager (mock purposes)
         
         guard testing else {
-            let sessionConfig = URLSessionConfiguration.default
-            sessionConfig.timeoutIntervalForResource = 10
-            sessionConfig.timeoutIntervalForRequest = 5
-            let newSession = Session(configuration: sessionConfig)
+            let sessionMockConfig = URLSessionConfiguration.default
+            sessionMockConfig.timeoutIntervalForResource = 10
+            sessionMockConfig.timeoutIntervalForRequest = 5
+            let newSession = Session(configuration: sessionMockConfig)
             self.sessionManager = newSession
             return
         }
         
-        self.sessionManager = session
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.requestCachePolicy = .returnCacheDataElseLoad
+        
+        let responseCacher = ResponseCacher(behavior: .modify { _, response in
+            let userInfo = ["date": Date(), "isCache": true] as [String : Any]
+          return CachedURLResponse(
+            response: response.response,
+            data: response.data,
+            userInfo: userInfo,
+            storagePolicy: .allowed)
+        })
+        
+        self.sessionManager = Session(configuration: sessionConfig, cachedResponseHandler: responseCacher)
         
     }
     
@@ -102,13 +114,13 @@ class MovieService {
         
         session.request("\(self.apiURL)\(mediaType.mediaParam)/\(category.categoryParam)?api_key=\(self.apiKey)&page=\(page)").responseDecodable(of: GetByCategoryResponse.self) { (response) in
             
-            guard response.response?.statusCode == 200 else {
-                closure( nil, RequestError.invalidStatus)
+            guard response.error == nil else {
+                closure( nil, RequestError.errorInRequest)
                 return
             }
             
-            guard response.error == nil else {
-                closure( nil, RequestError.errorInRequest)
+            guard response.response?.statusCode == 200 else {
+                closure( nil, RequestError.invalidStatus)
                 return
             }
             

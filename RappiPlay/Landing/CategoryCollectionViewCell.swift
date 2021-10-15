@@ -11,7 +11,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var mainImage: UrlImageView!
     @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var overlayView: UIView!
+    
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     var catInfo: MovieService.MovieResult? {
@@ -32,6 +32,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     func setup() {
+        self.mainLabel.isHidden = true
         self.loader.hidesWhenStopped = true
         self.loader.startAnimating()
     }
@@ -44,7 +45,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             }
             self.loader.stopAnimating()
             self.mainImage.loadImageFromUrl("https://image.tmdb.org/t/p/w500/\(imgUrl)")
+            self.mainLabel.text = info.title
         }
+        
+        mainLabel.isHidden = !self.mainImage.usingPlaceholder
     }
     
 }
