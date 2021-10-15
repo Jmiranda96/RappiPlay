@@ -12,8 +12,8 @@ import Alamofire
 class MovieService {
     
     
-    let regionCode: String
-    let mlUrl: String
+    let apiKey: String
+    let apiURL: String
     
     var sessionManager: Session?
     var offset = 0
@@ -32,18 +32,50 @@ class MovieService {
         }
     }
     
+    enum MediaType: Error {
+        case Tv
+        case Movie
+        var mediaParam: String {
+            switch self {
+            case .Movie:
+                return "movie"
+            case .Tv:
+                return "tv"
+            }
+        }
+    }
+    
+    enum CategoryType: Error {
+        case Popular
+        case TopRated
+        case Upcoming
+        case AiringToday
+        var categoryParam: String {
+            switch self {
+            case .Popular:
+                return "popular"
+            case .TopRated:
+                return "top_rated"
+            case .Upcoming:
+                return "upcoming"
+            case .AiringToday:
+                return "airing_today"
+            }
+        }
+    }
+    
     init(session: Session? = Session(), testing: Bool = false) {
         // get url direction from info.plist
-        guard let serverUrl = Bundle.main.infoDictionary?["ml-api-url"] as? String  else {
-            fatalError("ML api direction not found")
+        guard let serverUrl = Bundle.main.infoDictionary?["api-url"] as? String  else {
+            fatalError("api direction not found")
         }
-        self.mlUrl = serverUrl
+        self.apiURL = serverUrl
         
-        // get region from info.plist
-        guard let serverRegion = Bundle.main.infoDictionary?["ml-api-region"] as? String else {
-            fatalError("ML api region not found")
+        // get api key from info.plist
+        guard let serverApiKey = Bundle.main.infoDictionary?["api-key"] as? String else {
+            fatalError("api key not found")
         }
-        self.regionCode = serverRegion
+        self.apiKey = serverApiKey
         
         // Init of session manager (mock purposes)
         
@@ -60,15 +92,15 @@ class MovieService {
         
     }
     
-    /// function to fetch list of categories available in region
-    func fetchCategories(closure: @escaping  ([MLCategoryDetails]?, RequestError?) -> Void) {
+    /// function to fetch list of records by categories
+    func fetchByCategory(for mediaType: MediaType, by category: CategoryType, page: Int ,closure: @escaping  (GetByCategoryResponse?, RequestError?) -> Void) {
         
         guard let session = sessionManager else {
             print("NIL SESSION MANAGER")
             return
         }
         
-        session.request("\(self.mlUrl)sites/\(self.regionCode)/categories").responseDecodable(of: [MLCategoryDetails].self) { (response) in
+        session.request("\(self.apiURL)\(mediaType.mediaParam)/\(category.categoryParam)?api_key=\(self.apiKey)&page=\(page)").responseDecodable(of: GetByCategoryResponse.self) { (response) in
             
             guard response.response?.statusCode == 200 else {
                 closure( nil, RequestError.invalidStatus)
@@ -80,137 +112,39 @@ class MovieService {
                 return
             }
             
-            guard let categories = response.value else { return }
-            closure(categories, nil)
-        }
-    }
-    
-    /// fetch detail of category by his id
-    func fetchDetailCategory(_ id: String, closure: @escaping  (MLCategoryDetails?, RequestError?) -> Void) {
-        
-        guard let session = sessionManager else {
-            print("NIL SESSION MANAGER")
-            return
-        }
-        
-        session.request("\(self.mlUrl)categories/\(id)").responseDecodable(of: MLCategoryDetails.self) { (response) in
-
-            guard response.response?.statusCode == 200 else {
-                closure( nil, RequestError.invalidStatus)
-                return
-            }
-            
-            guard response.error == nil else {
-                closure( nil, RequestError.errorInRequest)
-                return
-            }
-            
-            guard let details = response.value else { return }
-            closure(details, nil)
-        }
-    }
-    
-    
-    /// fetch list of items fetched by category and/or id
-    func fetchItems(byCategory cat: String = "", bySearch q: String = "", isNewPage: Bool = false, closure: @escaping  (MLISearchResponse?, RequestError?) -> Void ) {
-        guard let session = sessionManager else {
-            print("NIL SESSION MANAGER")
-            return
-        }
-        
-        let queryCat = cat.isEmpty ? "" : "category=\(cat)"
-        
-        let queryQ = q.isEmpty ? "" : "q=\(q)"
-        
-        if !isNewPage {
-            limit = 20
-            offset = 0
-        }
-    
-        let stringLimit = String(limit)
-        let stringOffset = String(offset)
-        
-        self.offset+=limit
-        
-        session.request("\(self.mlUrl)sites/\(self.regionCode)/search?\(queryCat)&\(queryQ)&offset=\(stringOffset)&limit=\(stringLimit)").responseDecodable(of: MLISearchResponse.self) { (response) in
-            
-            guard response.response?.statusCode == 200 else {
-                closure( nil, RequestError.invalidStatus)
-                return
-            }
-            
-            guard response.error == nil else {
-                closure( nil, RequestError.errorInRequest)
-                return
-            }
-            
-            guard let results = response.value else { return }
-            closure(results, nil)
-        }
-        
-    }
-    
-    
-    func fetchItemDetails(id: String, closure: @escaping  (MLItemResponse?, RequestError?) -> Void){
-        guard let session = sessionManager else {
-            print("NIL SESSION MANAGER")
-            return
-        }
-        session.request("\(self.mlUrl)items/\(id)").responseDecodable(of: MLItemResponse.self) { (response) in
-            
-            guard response.response?.statusCode == 200 else {
-                closure( nil, RequestError.invalidStatus)
-                return
-            }
-            
-            guard response.error == nil else {
-                closure( nil, RequestError.errorInRequest)
-                return
-            }
-            
-            guard let results = response.value else { return }
-            closure(results, nil)
+            guard let mediaByCategory = response.value else { return }
+            closure(mediaByCategory, nil)
         }
     }
     
     //MARK: - data models
     
-    struct MLCategoryDetails: Codable, Equatable {
-        var id: String? = ""
-        var name: String? = ""
-        var picture: String? = ""
+    struct GetByCategoryResponse: Codable, Equatable {
+        var dates: DateRange?
+        var page: Int?
+        var results: [MovieResult]?
     }
     
-    struct MLISearchResponse: Codable, Equatable {
-        var site_id: String? = ""
-        var query: String? = ""
-        var results: [MLSearchResult]?
+    struct DateRange: Codable, Equatable {
+        var maximum: String?
+        var minimum: String?
     }
     
-    struct MLSearchResult: Codable, Equatable {
-        var id: String?
+    struct MovieResult: Codable, Equatable {
+        var poster_path: String?
+        var adult: Bool?
+        var overview: String?
+        var release_date: String?
+        var genre_ids: [Int]?
+        var id: Int?
+        var original_title: String?
+        var original_language: String?
         var title: String?
-        var price: Int?
-        var category_id: String?
-        var thumbnail: String?
+        var backdrop_path: String?
+        var popularity: Double?
+        var vote_count: Int?
+        var video: Bool?
+        var vote_average: Double?
     }
-    
-    struct MLItemResponse: Codable, Equatable {
-        var title: String? = ""
-        var price: Int? = 0
-        var condition: String? = ""
-        var permalink: String? = ""
-        var sold_quantity: Int? = 0
-        var pictures: [MLPicture]? = [MLPicture()]
-        var attributes: [MLAttributes]? = [MLAttributes()]
-    }
-    
-    struct MLPicture: Codable, Equatable {
-        var secure_url: String? = ""
-    }
-    
-    struct MLAttributes: Codable, Equatable {
-        var name: String? = ""
-        var value_name: String? = ""
-    }
+
 }
