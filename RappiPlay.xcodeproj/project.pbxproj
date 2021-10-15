@@ -19,6 +19,16 @@
 		F03D356727155CB200681286 /* RappiPlayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D356627155CB200681286 /* RappiPlayUITests.swift */; };
 		F03D35AB2715652E00681286 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35AA2715652E00681286 /* MovieService.swift */; };
 		F03D35AC2715652E00681286 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35AA2715652E00681286 /* MovieService.swift */; };
+		F03D35B42716BC9A00681286 /* LandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35B12716BC9A00681286 /* LandingModel.swift */; };
+		F03D35B52716BC9A00681286 /* LandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35B12716BC9A00681286 /* LandingModel.swift */; };
+		F03D35B62716BC9A00681286 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35B22716BC9A00681286 /* LandingViewController.swift */; };
+		F03D35B72716BC9A00681286 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35B22716BC9A00681286 /* LandingViewController.swift */; };
+		F03D35B82716BC9A00681286 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35B32716BC9A00681286 /* CategoryCollectionViewCell.swift */; };
+		F03D35B92716BC9A00681286 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35B32716BC9A00681286 /* CategoryCollectionViewCell.swift */; };
+		F03D35C02716CBA500681286 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35BE2716CBA500681286 /* ViewControllerExtension.swift */; };
+		F03D35C12716CBA500681286 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35BE2716CBA500681286 /* ViewControllerExtension.swift */; };
+		F03D35C22716CBA500681286 /* UrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35BF2716CBA500681286 /* UrlImageView.swift */; };
+		F03D35C32716CBA500681286 /* UrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D35BF2716CBA500681286 /* UrlImageView.swift */; };
 		FC9313E795A72BDCA9DC9733 /* Pods_RappiPlayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFAF7C01AB3605E0BEFF5D8 /* Pods_RappiPlayTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +74,11 @@
 		F03D356627155CB200681286 /* RappiPlayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappiPlayUITests.swift; sourceTree = "<group>"; };
 		F03D356827155CB200681286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F03D35AA2715652E00681286 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		F03D35B12716BC9A00681286 /* LandingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingModel.swift; sourceTree = "<group>"; };
+		F03D35B22716BC9A00681286 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		F03D35B32716BC9A00681286 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		F03D35BE2716CBA500681286 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		F03D35BF2716CBA500681286 /* UrlImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +157,8 @@
 		F03D354327155CA700681286 /* RappiPlay */ = {
 			isa = PBXGroup;
 			children = (
+				F03D35BD2716CBA400681286 /* Utilities */,
+				F03D35B02716BC9A00681286 /* Landing */,
 				F03D35A3271564BE00681286 /* Services */,
 				F03D354427155CA700681286 /* AppDelegate.swift */,
 				F03D354627155CA700681286 /* SceneDelegate.swift */,
@@ -178,6 +195,25 @@
 				F03D35AA2715652E00681286 /* MovieService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F03D35B02716BC9A00681286 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				F03D35B12716BC9A00681286 /* LandingModel.swift */,
+				F03D35B22716BC9A00681286 /* LandingViewController.swift */,
+				F03D35B32716BC9A00681286 /* CategoryCollectionViewCell.swift */,
+			);
+			path = Landing;
+			sourceTree = "<group>";
+		};
+		F03D35BD2716CBA400681286 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F03D35BE2716CBA500681286 /* ViewControllerExtension.swift */,
+				F03D35BF2716CBA500681286 /* UrlImageView.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,8 +456,13 @@
 			files = (
 				F03D354927155CA700681286 /* ViewController.swift in Sources */,
 				F03D354527155CA700681286 /* AppDelegate.swift in Sources */,
+				F03D35C22716CBA500681286 /* UrlImageView.swift in Sources */,
 				F03D35AB2715652E00681286 /* MovieService.swift in Sources */,
 				F03D354727155CA700681286 /* SceneDelegate.swift in Sources */,
+				F03D35C02716CBA500681286 /* ViewControllerExtension.swift in Sources */,
+				F03D35B62716BC9A00681286 /* LandingViewController.swift in Sources */,
+				F03D35B82716BC9A00681286 /* CategoryCollectionViewCell.swift in Sources */,
+				F03D35B42716BC9A00681286 /* LandingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,8 +470,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F03D35B52716BC9A00681286 /* LandingModel.swift in Sources */,
+				F03D35B92716BC9A00681286 /* CategoryCollectionViewCell.swift in Sources */,
+				F03D35C12716CBA500681286 /* ViewControllerExtension.swift in Sources */,
 				F03D35AC2715652E00681286 /* MovieService.swift in Sources */,
+				F03D35B72716BC9A00681286 /* LandingViewController.swift in Sources */,
 				F03D355C27155CB200681286 /* RappiPlayTests.swift in Sources */,
+				F03D35C32716CBA500681286 /* UrlImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
