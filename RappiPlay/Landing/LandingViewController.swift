@@ -11,7 +11,6 @@ class LandingViewController: UIViewController, LandingDelegate {
     
     
     @IBOutlet weak var mediaSelector: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var popularCollection: UICollectionView!
     @IBOutlet weak var topRatedCollection: UICollectionView!
     @IBOutlet weak var upcomingCollection: UICollectionView!
@@ -83,11 +82,6 @@ class LandingViewController: UIViewController, LandingDelegate {
         //tap gesture implemented to dismiss keyboard
         
         //self.dismissKeyboardOnTap()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.searchBar.text = ""
-        self.searchBar.placeholder = "Que quieres vitrinear?"
     }
     
     // function called to update size of CollectionViewCells after change of orientation
