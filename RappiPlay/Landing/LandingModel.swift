@@ -17,24 +17,25 @@ class LandingModel {
     
     var movieServices = MovieService()
     var delegate: LandingDelegate!
-    var upcomingList = [MovieService.MovieResult]() {
+    var upcomingList = [Any]() {
         didSet {
             self.delegate.refreshUpcoming()
         }
     }
     var upcomingPageCount = 1
-    var popularList = [MovieService.MovieResult]() {
+    var popularList = [Any]() {
         didSet {
             self.delegate.refreshPopular()
         }
     }
     var popularPageCount = 1
-    var topRatedList = [MovieService.MovieResult]() {
+    var topRatedList = [Any]() {
         didSet {
             self.delegate.refreshTopRated()
         }
     }
     var topRatedPageCount = 1
+    
     
     func resetContent() {
         topRatedPageCount = 1
@@ -45,57 +46,69 @@ class LandingModel {
         topRatedList.removeAll()
     }
     
-    func getUpcoming(for contentType: MovieService.MediaType) {
-        // fetch categories from mlServices
-        movieServices.fetchByCategory(for: contentType, by: contentType == .Movie ? MovieService.CategoryType.Upcoming : MovieService.CategoryType.AiringToday, page: upcomingPageCount, closure:
-            { (list, error)  in
+    func updateUpcoming<ResultSchema>(list: [ResultSchema]?, error: Any?) {
+        // check for error in response
+        guard error == nil else {
+            return
+        }
             
-            // check for error in response
-            guard error == nil else {
-                return
-            }
-                
-            guard let movieResults = list?.results else {
-                return
-            }
-            self.upcomingPageCount+=1
-            self.upcomingList.append(contentsOf: movieResults)
-        })
+        guard let movieResults = list else {
+            return
+        }
+        self.upcomingPageCount+=1
+        self.upcomingList.append(contentsOf: movieResults)
+    }
+    
+    func updatePopular<ResultSchema>(list: [ResultSchema]?, error: Any?) {
+        // check for error in response
+        guard error == nil else {
+            return
+        }
+            
+        guard let movieResults = list else {
+            return
+        }
+        self.popularPageCount+=1
+        self.popularList.append(contentsOf: movieResults)
+    }
+    
+    func updateTopRated<ResultSchema>(list: [ResultSchema]?, error: Any?) {
+        // check for error in response
+        guard error == nil else {
+            return
+        }
+            
+        guard let movieResults = list else {
+            return
+        }
+        self.topRatedPageCount+=1
+        self.topRatedList.append(contentsOf: movieResults)
+    }
+    
+    func getUpcoming(for contentType: MovieService.MediaType) {
+        switch contentType {
+        case .Movie:
+            movieServices.fetchMovieByCategory(by: MovieService.CategoryType.Upcoming, page: upcomingPageCount, closure: updateUpcoming)
+        case .Tv:
+            movieServices.fetchTVByCategory(by: MovieService.CategoryType.AiringToday, page: upcomingPageCount, closure: updateUpcoming)
+        }
     }
     
     func getPopular(for contentType: MovieService.MediaType) {
-        // fetch categories from mlServices
-        movieServices.fetchByCategory(for: contentType, by: MovieService.CategoryType.Popular, page: popularPageCount, closure:
-            { (list, error)  in
-            
-            // check for error in response
-            guard error == nil else {
-                return
-            }
-                
-            guard let movieResults = list?.results else {
-                return
-            }
-            self.popularPageCount+=1
-            self.popularList.append(contentsOf: movieResults)
-        })
+        switch contentType {
+        case .Movie:
+            movieServices.fetchMovieByCategory(by: MovieService.CategoryType.Popular, page: upcomingPageCount, closure: updatePopular)
+        case .Tv:
+            movieServices.fetchTVByCategory(by: MovieService.CategoryType.Popular, page: upcomingPageCount, closure: updatePopular)
+        }
     }
     
     func getTopRated(for contentType: MovieService.MediaType) {
-        // fetch categories from mlServices
-        movieServices.fetchByCategory(for: contentType, by: MovieService.CategoryType.TopRated, page: topRatedPageCount, closure:
-            { (list, error)  in
-            
-            // check for error in response
-            guard error == nil else {
-                return
-            }
-                
-            guard let movieResults = list?.results else {
-                return
-            }
-            self.topRatedPageCount+=1
-            self.topRatedList.append(contentsOf: movieResults)
-        })
+        switch contentType {
+        case .Movie:
+            movieServices.fetchMovieByCategory(by: MovieService.CategoryType.TopRated, page: upcomingPageCount, closure: updateTopRated)
+        case .Tv:
+            movieServices.fetchTVByCategory(by: MovieService.CategoryType.TopRated, page: upcomingPageCount, closure: updateTopRated)
+        }
     }
 }

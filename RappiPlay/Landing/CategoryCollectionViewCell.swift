@@ -14,11 +14,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
-    var catInfo: MovieService.MovieResult? {
+    var catInfo: Any! {
         didSet {
             self.updateUI()
         }
     }
+    
+    var cellType: MovieService.MediaType!
     
     override func awakeFromNib() {
         self.mainImage.layer.cornerRadius = 10
@@ -38,14 +40,23 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     func updateUI() {
-        if let info = catInfo {
-            guard let imgUrl = info.poster_path else {
+        
+        if let info = (catInfo as? MovieServiceSchemas.MovieResult){
+            guard let imgUrl = info.posterPath else {
                 self.loader.startAnimating()
                 return
             }
             self.loader.stopAnimating()
             self.mainImage.loadImageFromUrl("https://image.tmdb.org/t/p/w500/\(imgUrl)")
             self.mainLabel.text = info.title
+        } else if let info = (catInfo as? MovieServiceSchemas.TvResult){
+            guard let imgUrl = info.posterPath else {
+                self.loader.startAnimating()
+                return
+            }
+            self.loader.stopAnimating()
+            self.mainImage.loadImageFromUrl("https://image.tmdb.org/t/p/w500/\(imgUrl)")
+            self.mainLabel.text = info.name
         }
         
         mainLabel.isHidden = !self.mainImage.usingPlaceholder

@@ -20,11 +20,6 @@ class LandingViewController: UIViewController, LandingDelegate {
     @IBOutlet weak var PopularLabel: UILabel!
     @IBOutlet weak var UpcomingLabel: UILabel!
     
-    let refreshTopRatedControl = UIRefreshControl()
-    let refreshPopularControl = UIRefreshControl()
-    let refreshUpComingControl = UIRefreshControl()
-    
-    
     let model: LandingModel = LandingModel()
     
     var contentType = MovieService.MediaType.Movie
@@ -48,7 +43,6 @@ class LandingViewController: UIViewController, LandingDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.model.delegate = self
-        self.searchBar.delegate = self
         self.popularCollection.dataSource = self
         self.popularCollection.delegate = self
         
@@ -58,12 +52,15 @@ class LandingViewController: UIViewController, LandingDelegate {
         self.upcomingCollection.dataSource = self
         self.upcomingCollection.delegate = self
         
-        
-        refreshTopRatedControl.addTarget(self, action: #selector(self.refreshTopRatedData), for: UIControl.Event.valueChanged)
-        refreshTopRatedControl.attributedTitle = NSAttributedString(string: "Refresh Collection View", attributes: nil)
-        refreshTopRatedControl.tintColor = UIColor.label
-        self.topRatedCollection.refreshControl = refreshTopRatedControl
         self.topRatedCollection.alwaysBounceHorizontal = true
+        self.topRatedCollection.alwaysBounceVertical = false
+        
+        self.upcomingCollection.alwaysBounceHorizontal = true
+        self.upcomingCollection.alwaysBounceVertical = false
+        
+        self.popularCollection.alwaysBounceHorizontal = true
+        self.popularCollection.alwaysBounceVertical = false
+
 
         
         mediaSelector.setTitle("Movies", forSegmentAt: 0)
@@ -145,33 +142,21 @@ class LandingViewController: UIViewController, LandingDelegate {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? ItemListViewController {
-//
-//            // Check the format of sender to config the variables for next Vc
-//
-//            if let senderInfo = sender as? [String:String?] {
-//                if let searchQuery = senderInfo["search"]  {
-//                    vc.query = searchQuery!
-//                }
-//            }
-//
-//            if let senderInfo = sender as? [String:MLServices.MLCategoryDetails] {
-//                if let categoryQuery = senderInfo["mediaInfo"] {
-//                    vc.categoryInfo = categoryQuery
-//                }
-//            }
-//        }
-    }
-
-}
-
-// MARK: - UISearchBarDelegate
-
-extension LandingViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // perform segue to item list page with the search query in the sender
-        guard !searchBar.text!.isEmpty else {return}
-        self.performSegue(withIdentifier: "showItemsList", sender: ["search":searchBar.text])
+        if let vc = segue.destination as? ContentDetailsViewController {
+            if let senderInfo = sender as? [String:Any?] {
+                switch contentType {
+                    case .Movie:
+                        let movieDetail = senderInfo["mediaInfo"] as! MovieServiceSchemas.MovieResult
+                        vc.contentType = contentType
+                        vc.id = movieDetail.id
+                    
+                    case .Tv:
+                        let tvDetail = senderInfo["mediaInfo"] as! MovieServiceSchemas.TvResult
+                        vc.contentType = contentType
+                        vc.id = tvDetail.id
+                }
+            }
+        }
     }
 }
 
@@ -200,8 +185,9 @@ extension LandingViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
-        var categoryRecords = [MovieService.MovieResult]()
+        
+        var cell: UICollectionViewCell
+        var categoryRecords = [Any]()
         
         switch collectionView {
             case popularCollection:
@@ -214,11 +200,25 @@ extension LandingViewController: UICollectionViewDataSource {
                 break
         }
         
-        guard categoryRecords.count > 0 else {
-            return cell
+        switch contentType {
+        case .Movie:
+            let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+            
+            guard categoryRecords.count > 0 else {
+                return movieCell
+            }
+            movieCell.catInfo = (categoryRecords[indexPath.row] as! MovieServiceSchemas.MovieResult)
+            cell = movieCell
+        case .Tv:
+            let tvCell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+            
+            guard categoryRecords.count > 0 else {
+                return tvCell
+            }
+            tvCell.catInfo = (categoryRecords[indexPath.row] as! MovieServiceSchemas.TvResult)
+            
+            cell = tvCell
         }
-        cell.catInfo = categoryRecords[indexPath.row]
-        
         
         if (indexPath.row == categoryRecords.count - 1 ) {
             switch collectionView {
@@ -234,11 +234,12 @@ extension LandingViewController: UICollectionViewDataSource {
         }
         
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        var categoryRecords = [MovieService.MovieResult]()
+        var categoryRecords = [Any]()
         
         switch collectionView {
             case popularCollection:
@@ -251,7 +252,7 @@ extension LandingViewController: UICollectionViewDataSource {
                 break
         }
         
-        //self.performSegue(withIdentifier: "showItemsList", sender:["mediaInfo":categoryRecords[indexPath.row]])
+        self.performSegue(withIdentifier: "showContentDetail", sender:["mediaInfo":categoryRecords[indexPath.row]])
     }
     
     
